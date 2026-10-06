@@ -113,15 +113,6 @@ export default function Hero({ onOpenEstimate }) {
                   <div className="text-[11px] text-[#555B66]">Hands-on Trade Mastery</div>
                 </div>
               </div>
-
-              {/* Floating Badge: Direct Owner Accountability */}
-              <div className="absolute -bottom-5 -left-4 sm:-left-6 bg-[#0E1116] text-white rounded-xl py-3 px-4 shadow-xl border border-white/10 hidden sm:flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#B81828] animate-ping"></div>
-                <div>
-                  <div className="text-xs font-bold">Marcio Apolinario Jr.</div>
-                  <div className="text-[10px] text-white/70">On-Site General Manager</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
