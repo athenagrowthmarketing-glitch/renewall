@@ -4,7 +4,7 @@
 
 export const RECAPTCHA_SITE_KEY = '6LfOpRctAAAAAOJmBcplr60CA0G3y-BnVhXrrFE-';
 export const RECAPTCHA_SECRET_KEY = '6LfOpRctAAAAAFsfHCAki_z8RXXZtiJjaTdyOzAX';
-export const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/URiDtMues3unIoWCPYJa/webhook-trigger/7de743a3-340d-472a-84b0-1ecd29928594';
+export const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/URiDtMues3unIoWCPYJa/webhook-trigger/3934d04a-4ec5-4882-aaa4-d25d347fa2ef';
 
 /**
  * Execute reCAPTCHA v3 with a strict 600ms timeout so it NEVER holds back webhook delivery
@@ -61,25 +61,45 @@ export async function submitLeadToWebhook(formData, formType = 'Detailed Scoping
 
   // 3. Assemble complete payload mapped to standard and custom CRM fields
   const payload = {
-    // Contact Identification
+    // Contact Identification (Matches: "Full Name *" / "Your Full Name *")
     name: rawName,
     full_name: rawName,
+    fullName: rawName,
     first_name: firstName,
+    firstName: firstName,
     last_name: lastName,
+    lastName: lastName,
+
+    // Phone (Matches: "Phone Number *")
     phone: formData.phone || '',
+    phone_number: formData.phone || '',
     phoneNumber: formData.phone || '',
+
+    // Email (Matches: "Email *" / "Email Address *")
     email: formData.email || '',
+    email_address: formData.email || '',
     emailAddress: formData.email || '',
 
-    // Geographic Details
+    // Geographic Details (Matches: "City or ZIP Code *" / "City or ZIP Code in SWFL *")
     zip: formData.zip || '',
     postal_code: formData.zip || '',
     postalCode: formData.zip || '',
     city: formData.zip || '',
+    city_or_zip: formData.zip || '',
+    cityOrZip: formData.zip || '',
     address: formData.zip || '',
 
-    // Project & Scope Details
+    // Project Notes (Matches: "Project Notes (Optional)" / "Project Notes or Specific Needs (Optional)")
+    notes: formData.notes || '',
+    project_notes: formData.notes || '',
+    projectNotes: formData.notes || '',
+    message: formData.notes || '',
+    description: formData.notes || '',
+
+    // Service & Scope Details (Matches: "Service Type" / Step 1)
     service: formData.service || '',
+    service_type: formData.service || '',
+    serviceType: formData.service || '',
     selected_service: formData.service || '',
     project_size: formData.size || '',
     home_size: formData.size || '',
@@ -87,12 +107,10 @@ export async function submitLeadToWebhook(formData, formType = 'Detailed Scoping
     timing: formData.timing || '',
     timeframe: formData.timing || '',
     timeline: formData.timing || '',
-    notes: formData.notes || '',
-    message: formData.notes || '',
-    description: formData.notes || '',
 
     // Context & Attribution
     form_type: formType,
+    formType: formType,
     page_url: typeof window !== 'undefined' ? window.location.href : '',
     page_title: typeof document !== 'undefined' ? document.title : '',
     source: 'Renewall Remodeling Website',
