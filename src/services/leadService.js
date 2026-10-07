@@ -7,56 +7,50 @@ export const RECAPTCHA_SECRET_KEY = '6LfOpRctAAAAAFsfHCAki_z8RXXZtiJjaTdyOzAX';
 export const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/URiDtMues3unIoWCPYJa/webhook-trigger/7de743a3-340d-472a-84b0-1ecd29928594';
 
 /**
- * Execute reCAPTCHA v3 and retrieve token
+ * Execute reCAPTCHA v3 with a strict 600ms timeout so it NEVER holds back webhook delivery
  */
 export async function getRecaptchaToken(action = 'estimate_submission') {
   if (typeof window === 'undefined') return null;
 
   return new Promise((resolve) => {
-    if (window.grecaptcha && window.grecaptcha.ready) {
-      window.grecaptcha.ready(async () => {
-        try {
-          const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action });
-          resolve(token);
-        } catch (err) {
-          console.warn('reCAPTCHA execution error:', err);
-          resolve(null);
-        }
-      });
-    } else {
-      // Fallback if reCAPTCHA script is still loading or blocked by ad-blocker
-      let attempts = 0;
-      const interval = setInterval(async () => {
-        attempts++;
-        if (window.grecaptcha && window.grecaptcha.ready) {
-          clearInterval(interval);
+    // 600ms fail-safe timeout
+    const timer = setTimeout(() => {
+      resolve(null);
+    }, 600);
+
+    try {
+      if (window.grecaptcha && window.grecaptcha.ready) {
+        window.grecaptcha.ready(async () => {
           try {
-            window.grecaptcha.ready(async () => {
-              const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action });
-              resolve(token);
-            });
-          } catch (e) {
+            const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action });
+            clearTimeout(timer);
+            resolve(token);
+          } catch (err) {
+            clearTimeout(timer);
             resolve(null);
           }
-        } else if (attempts >= 10) {
-          clearInterval(interval);
-          resolve(null);
-        }
-      }, 200);
+        });
+      } else {
+        clearTimeout(timer);
+        resolve(null);
+      }
+    } catch (e) {
+      clearTimeout(timer);
+      resolve(null);
     }
   });
 }
 
 /**
- * Send full lead data to GoHighLevel webhook
+ * Send full lead data to GoHighLevel / LeadConnector webhook
  */
 export async function submitLeadToWebhook(formData, formType = 'Detailed Scoping Form') {
-  // 1. Get reCAPTCHA v3 token
+  // 1. Fetch reCAPTCHA v3 token (failsafe within 600ms)
   let token = null;
   try {
     token = await getRecaptchaToken(formType.toLowerCase().replace(/[^a-z0-9]/g, '_'));
   } catch (err) {
-    console.warn('Could not acquire reCAPTCHA token:', err);
+    console.warn('[Renewall] reCAPTCHA skipped:', err);
   }
 
   // 2. Parse First and Last Name for CRM contact mapping
@@ -67,24 +61,35 @@ export async function submitLeadToWebhook(formData, formType = 'Detailed Scoping
 
   // 3. Assemble complete payload mapped to standard and custom CRM fields
   const payload = {
-    // Primary Contact Fields
+    // Contact Identification
     name: rawName,
     full_name: rawName,
     first_name: firstName,
     last_name: lastName,
     phone: formData.phone || '',
+    phoneNumber: formData.phone || '',
     email: formData.email || '',
-    postal_code: formData.zip || '',
+    emailAddress: formData.email || '',
+
+    // Geographic Details
     zip: formData.zip || '',
+    postal_code: formData.zip || '',
+    postalCode: formData.zip || '',
+    city: formData.zip || '',
+    address: formData.zip || '',
 
     // Project & Scope Details
     service: formData.service || '',
+    selected_service: formData.service || '',
     project_size: formData.size || '',
     home_size: formData.size || '',
+    size: formData.size || '',
     timing: formData.timing || '',
     timeframe: formData.timing || '',
+    timeline: formData.timing || '',
     notes: formData.notes || '',
     message: formData.notes || '',
+    description: formData.notes || '',
 
     // Context & Attribution
     form_type: formType,
@@ -93,10 +98,12 @@ export async function submitLeadToWebhook(formData, formType = 'Detailed Scoping
     source: 'Renewall Remodeling Website',
     submitted_at: new Date().toISOString(),
 
-    // Security & reCAPTCHA v3 verification
+    // Security & reCAPTCHA v3
     recaptcha_token: token || '',
     recaptcha_secret: RECAPTCHA_SECRET_KEY,
   };
+
+  console.log('[Renewall Webhook] Sending lead payload to GoHighLevel:', payload);
 
   try {
     const response = await fetch(WEBHOOK_URL, {
@@ -108,17 +115,33 @@ export async function submitLeadToWebhook(formData, formType = 'Detailed Scoping
       body: JSON.stringify(payload),
     });
 
-    if (!response.ok) {
-      console.warn(`Webhook responded with status ${response.status}`);
-    }
+    console.log('[Renewall Webhook] Response status:', response.status);
 
     return {
       success: true,
       data: payload,
     };
   } catch (error) {
-    console.error('Error dispatching lead to webhook:', error);
-    // Return success true so user still gets positive UI confirmation even if network blips
+    console.warn('[Renewall Webhook] Primary JSON fetch error, attempting fallback:', error);
+    
+    // Fallback: If ad-blocker or CORS blocked the standard fetch, send via Beacon or urlencoded no-cors
+    try {
+      const urlEncoded = new URLSearchParams();
+      Object.entries(payload).forEach(([k, v]) => urlEncoded.append(k, String(v)));
+      
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: urlEncoded.toString(),
+      });
+      console.log('[Renewall Webhook] Dispatched via fallback no-cors');
+    } catch (fallbackError) {
+      console.error('[Renewall Webhook] Fallback failed:', fallbackError);
+    }
+
     return {
       success: true,
       error: error.message,
