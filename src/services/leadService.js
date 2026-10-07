@@ -4,7 +4,7 @@
 
 export const RECAPTCHA_SITE_KEY = '6LfOpRctAAAAAOJmBcplr60CA0G3y-BnVhXrrFE-';
 export const RECAPTCHA_SECRET_KEY = '6LfOpRctAAAAAFsfHCAki_z8RXXZtiJjaTdyOzAX';
-export const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/URiDtMues3unIoWCPYJa/webhook-trigger/3934d04a-4ec5-4882-aaa4-d25d347fa2ef';
+export const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/URiDtMues3unIoWCPYJa/webhook-trigger/01989648-2478-4b4d-93bc-73bab8a3bc7f';
 
 /**
  * Execute reCAPTCHA v3 with a strict 600ms timeout so it NEVER holds back webhook delivery
