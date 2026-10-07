@@ -97,7 +97,7 @@ export default function EstimateModal({ isOpen, onClose, defaultService = 'Exter
                   <input
                     type="text"
                     required
-                    placeholder="John Doe"
+                    placeholder="John Smith"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E6E1] text-xs bg-[#FAFAF8] focus:outline-none focus:border-[#B81828]"
@@ -118,11 +118,11 @@ export default function EstimateModal({ isOpen, onClose, defaultService = 'Exter
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold mb-1">Email *</label>
+                  <label className="block text-xs font-bold mb-1">Email Address *</label>
                   <input
                     type="email"
                     required
-                    placeholder="john@email.com"
+                    placeholder="john@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E6E1] text-xs bg-[#FAFAF8] focus:outline-none focus:border-[#B81828]"

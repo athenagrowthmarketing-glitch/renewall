@@ -242,7 +242,7 @@ export default function EstimateSection({ defaultService = 'Exterior Painting & 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-xs font-bold text-[#14171E] mb-1">
-                            Your Full Name *
+                            Full Name *
                           </label>
                           <input
                             type="text"
@@ -284,12 +284,12 @@ export default function EstimateSection({ defaultService = 'Exterior Painting & 
                         </div>
                         <div>
                           <label className="block text-xs font-bold text-[#14171E] mb-1">
-                            City or ZIP Code in SWFL *
+                            City or ZIP Code *
                           </label>
                           <input
                             type="text"
                             required
-                            placeholder="Cape Coral, FL (33991)"
+                            placeholder="Cape Coral, FL 33991"
                             value={formData.zip}
                             onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
                             className="w-full px-4 py-3 rounded-xl border border-[#E8E6E1] text-sm text-[#14171E] focus:outline-none focus:border-[#B81828] focus:ring-1 focus:ring-[#B81828] bg-[#FAFAF8]"
@@ -299,11 +299,11 @@ export default function EstimateSection({ defaultService = 'Exterior Painting & 
 
                       <div>
                         <label className="block text-xs font-bold text-[#14171E] mb-1">
-                          Project Notes or Specific Needs (Optional)
+                          Project Notes (Optional)
                         </label>
                         <textarea
                           rows="3"
-                          placeholder="e.g. Waterfront 2-story home with pool cage, stucco hairline cracks on south wall, interested in dark navy tone..."
+                          placeholder="Tell us about your home, stucco condition, or timeline..."
                           value={formData.notes}
                           onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                           className="w-full px-4 py-2.5 rounded-xl border border-[#E8E6E1] text-sm text-[#14171E] focus:outline-none focus:border-[#B81828] focus:ring-1 focus:ring-[#B81828] bg-[#FAFAF8]"
