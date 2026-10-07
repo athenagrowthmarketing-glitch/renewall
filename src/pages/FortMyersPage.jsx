@@ -28,8 +28,8 @@ export default function FortMyersPage({ onOpenEstimate }) {
       <SEO
         title="Exterior & Interior Painting Fort Myers, FL | Renewall Remodeling"
         description="Premium residential exterior and interior painting across Fort Myers, FL. HOA compliance, historic stucco restoration, and weather-shield coatings. Call (239) 246-5853."
-        canonical="https://renewallremodeling.com/locations/fort-myers"
-        image="/images/exterior-pool-patio.jpg"
+        canonical="https://www.renewallremodeling.com/locations/fort-myers"
+        image="https://www.renewallremodeling.com/images/exterior-pool-patio.jpg"
       />
 
       {/* Hero Header */}

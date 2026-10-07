@@ -3,35 +3,39 @@ import { useEffect } from 'react';
 export default function SEO({
   title = 'Renewall Remodeling & Improvement | Exterior & Interior Painting Cape Coral, FL',
   description = 'Premier residential exterior and interior painting across Cape Coral, Fort Myers, and Southwest Florida. Meticulous stucco restoration, UV-resistant weather coatings, and master interior finishes. Call (239) 246-5853.',
-  canonical = 'https://renewallremodeling.com/',
-  image = '/images/hero-exterior-waterfront.jpg'
+  canonical = 'https://www.renewallremodeling.com/',
+  image = 'https://www.renewallremodeling.com/images/hero-exterior-waterfront.jpg'
 }) {
   useEffect(() => {
     // Update Title
     document.title = title;
 
+    // Helper to safely set meta tags
+    const setMeta = (attr, key, val) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', val);
+    };
+
     // Update Meta Description
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.setAttribute('name', 'description');
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute('content', description);
+    setMeta('name', 'description', description);
 
-    // Update OG Title
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title);
+    // Update Open Graph tags
+    setMeta('property', 'og:title', title);
+    setMeta('property', 'og:description', description);
+    setMeta('property', 'og:image', image);
+    setMeta('property', 'og:url', canonical);
 
-    // Update OG Description
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', description);
+    // Update Twitter Card tags
+    setMeta('name', 'twitter:title', title);
+    setMeta('name', 'twitter:description', description);
+    setMeta('name', 'twitter:image', image);
 
-    // Update OG Image
-    let ogImage = document.querySelector('meta[property="og:image"]');
-    if (ogImage) ogImage.setAttribute('content', image);
-
-    // Update Canonical
+    // Update Canonical Link
     let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (!linkCanonical) {
       linkCanonical = document.createElement('link');

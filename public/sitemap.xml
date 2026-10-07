@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.renewallremodeling.com/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/hero-exterior-waterfront.jpg</image:loc>
+      <image:title>Renewall Remodeling &amp; Improvement - Exterior &amp; Interior Painting Cape Coral FL</image:title>
+      <image:caption>Premier residential exterior painting, stucco repair, and interior remodeling in Southwest Florida</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service: Exterior Painting & Stucco Sealing -->
+  <url>
+    <loc>https://www.renewallremodeling.com/services/exterior-painting</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/exterior-canal-dock.jpg</image:loc>
+      <image:title>Exterior Painting &amp; Stucco Sealing Southwest Florida</image:title>
+      <image:caption>Florida weather-resistant exterior painting, pressure washing, stucco patching, and elastomeric protective finishes</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/exterior-pool-patio.jpg</image:loc>
+      <image:title>Exterior Pool Patio Painting Cape Coral</image:title>
+    </image:image>
+  </url>
+
+  <!-- Service: Interior Painting & Smooth Wall Refinement -->
+  <url>
+    <loc>https://www.renewallremodeling.com/services/interior-painting</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/interior-bedroom-white.jpg</image:loc>
+      <image:title>Interior Painting &amp; Wall Finishing Cape Coral</image:title>
+      <image:caption>Dust-protected interior painting, drywall finishing, baseboard enameling, and trim craft</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service: Remodeling Finishes & Flooring -->
+  <url>
+    <loc>https://www.renewallremodeling.com/services/remodeling-finishes</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/kitchen-luxury-waterfall.jpg</image:loc>
+      <image:title>Architectural Remodeling &amp; Tile Finishes</image:title>
+      <image:caption>Large-format tile installation, luxury vinyl plank flooring, custom backsplashes, and epoxy garage coatings</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/garage-epoxy-coating.jpg</image:loc>
+      <image:title>Commercial Grade Epoxy Garage Floor Coating</image:title>
+    </image:image>
+  </url>
+
+  <!-- Visual Portfolio -->
+  <url>
+    <loc>https://www.renewallremodeling.com/projects</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/kitchen-modern-wide.jpg</image:loc>
+      <image:title>Renewall Remodeling Project Portfolio Cape Coral FL</image:title>
+    </image:image>
+  </url>
+
+  <!-- Local Authority: Cape Coral -->
+  <url>
+    <loc>https://www.renewallremodeling.com/locations/cape-coral</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/exterior-pool-detail.jpg</image:loc>
+      <image:title>Exterior Painting &amp; Remodeling Services in Cape Coral, FL</image:title>
+      <image:caption>Waterfront and residential painting built for Cape Coral canal weather and intense Florida UV</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Local Authority: Fort Myers -->
+  <url>
+    <loc>https://www.renewallremodeling.com/locations/fort-myers</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/kitchen-white-shaker.jpg</image:loc>
+      <image:title>Exterior Painting &amp; Remodeling Services in Fort Myers, FL</image:title>
+    </image:image>
+  </url>
+
+  <!-- About Company -->
+  <url>
+    <loc>https://www.renewallremodeling.com/about</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://www.renewallremodeling.com/images/craft-laser-level.jpg</image:loc>
+      <image:title>About Renewall Remodeling &amp; Improvement</image:title>
+      <image:caption>Craftsmanship, reliability, and precision painting in Southwest Florida</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

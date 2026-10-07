@@ -29,8 +29,8 @@ export default function InteriorPaintingPage({ onOpenEstimate }) {
       <SEO
         title="Interior Painting & Drywall Prep Cape Coral, FL | Renewall Remodeling"
         description="Clean, dust-protected interior painting, smooth drywall prep, and trim enameling across Cape Coral, Fort Myers, and SWFL. Call (239) 246-5853."
-        canonical="https://renewallremodeling.com/services/interior-painting"
-        image="/images/interior-bedroom-white.jpg"
+        canonical="https://www.renewallremodeling.com/services/interior-painting"
+        image="https://www.renewallremodeling.com/images/interior-bedroom-white.jpg"
       />
 
       {/* Header */}

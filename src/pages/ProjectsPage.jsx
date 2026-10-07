@@ -128,8 +128,8 @@ export default function ProjectsPage({ onOpenEstimate }) {
       <SEO
         title="Project Gallery & Transformations | Renewall Remodeling & Improvement"
         description="Explore real Southwest Florida exterior painting, interior finishes, and remodeling projects completed by Renewall Remodeling. Cape Coral, Fort Myers & beyond."
-        canonical="https://renewallremodeling.com/projects"
-        image="/images/hero-exterior-waterfront.jpg"
+        canonical="https://www.renewallremodeling.com/projects"
+        image="https://www.renewallremodeling.com/images/hero-exterior-waterfront.jpg"
       />
 
       {/* Hero Header */}

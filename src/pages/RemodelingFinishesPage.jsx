@@ -41,8 +41,8 @@ export default function RemodelingFinishesPage({ onOpenEstimate }) {
       <SEO
         title="Kitchen Remodeling, Tile & Flooring Cape Coral, FL | Renewall Remodeling"
         description="High-end kitchen remodeling, walk-in tile showers, continuous luxury flooring, and garage epoxy coatings in Cape Coral & Fort Myers, FL. Call (239) 246-5853."
-        canonical="https://renewallremodeling.com/services/remodeling-finishes"
-        image="/images/kitchen-luxury-waterfall.jpg"
+        canonical="https://www.renewallremodeling.com/services/remodeling-finishes"
+        image="https://www.renewallremodeling.com/images/kitchen-luxury-waterfall.jpg"
       />
 
       {/* Hero Header */}

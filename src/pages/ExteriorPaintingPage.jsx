@@ -62,8 +62,8 @@ export default function ExteriorPaintingPage({ onOpenEstimate }) {
       <SEO
         title="Exterior Painting & Stucco Sealing Cape Coral, FL | Renewall Remodeling"
         description="Florida weather-resistant exterior painting, stucco crack sealing, and UV protective coatings across Cape Coral, Fort Myers, and SWFL. Call (239) 246-5853."
-        canonical="https://renewallremodeling.com/services/exterior-painting"
-        image="/images/hero-exterior-waterfront.jpg"
+        canonical="https://www.renewallremodeling.com/services/exterior-painting"
+        image="https://www.renewallremodeling.com/images/hero-exterior-waterfront.jpg"
       />
 
       {/* Hero Header */}

@@ -19,8 +19,8 @@ export default function CapeCoralPage({ onOpenEstimate }) {
       <SEO
         title="Exterior & Interior Painting Cape Coral, FL | Renewall Remodeling"
         description="Cape Coral's trusted residential exterior and interior painting contractor. Based at 105 SW 34th Ave, Cape Coral, FL 33991. Call (239) 246-5853."
-        canonical="https://renewallremodeling.com/locations/cape-coral"
-        image="/images/hero-exterior-waterfront.jpg"
+        canonical="https://www.renewallremodeling.com/locations/cape-coral"
+        image="https://www.renewallremodeling.com/images/hero-exterior-waterfront.jpg"
       />
 
       {/* Hero Header */}

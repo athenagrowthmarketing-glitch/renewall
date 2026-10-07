@@ -33,8 +33,8 @@ export default function AboutPage({ onOpenEstimate }) {
       <SEO
         title="About Renewall Remodeling | 15+ Years Trade Craftsmanship"
         description="Meet Marcio Alexandre Apolinario Jr. and the Renewall Remodeling team. Over 15 years of hands-on surface craft, Cape Coral headquarters, and fully insured protection."
-        canonical="https://renewallremodeling.com/about"
-        image="/images/craft-laser-level.jpg"
+        canonical="https://www.renewallremodeling.com/about"
+        image="https://www.renewallremodeling.com/images/craft-laser-level.jpg"
       />
 
       {/* Hero Header */}

@@ -1,0 +1,16 @@
+# Robots.txt for Renewall Remodeling & Improvement
+# https://www.renewallremodeling.com
+
+User-agent: *
+Allow: /
+
+# Prevent indexing of build / source assets
+Disallow: /src/
+Disallow: /api/
+
+# Host
+Host: https://www.renewallremodeling.com
+
+# Sitemaps
+Sitemap: https://www.renewallremodeling.com/sitemap.xml
+Sitemap: https://site-renewall.vercel.app/sitemap.xml

@@ -19,8 +19,8 @@ export default function HomePage({ onOpenEstimate }) {
       <SEO
         title="Renewall Remodeling & Improvement | Exterior & Interior Painting Cape Coral, FL"
         description="Precision residential exterior and interior painting across Cape Coral, Fort Myers, and Southwest Florida. Meticulous stucco restoration, UV-resistant weather coatings, and master interior finishes. Call (239) 246-5853."
-        canonical="https://renewallremodeling.com/"
-        image="/images/hero-exterior-waterfront.jpg"
+        canonical="https://www.renewallremodeling.com/"
+        image="https://www.renewallremodeling.com/images/hero-exterior-waterfront.jpg"
       />
 
       <Hero onOpenEstimate={onOpenEstimate} />
